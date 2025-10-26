@@ -1,0 +1,116 @@
+/* Amanda Wedergren
+   October 22, 2025
+   Module 2.2 Assignment
+*/
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 1.5rem;
+  color: #222;
+  background: #ffffff;
+}
+
+/* Make page content legible on small screens */
+@media (max-width: 520px) {
+  body { margin: 0.75rem; font-size: 15px; }
+}
+
+header h1 {
+  /* Page title spacing */
+  margin: 0 0 .25rem 0;
+}
+
+.summary {
+  /* Short description under the title that gives readers context */
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.genre-group {
+  /* Visual separator for each topical group (genre). Keeps groups distinct */
+  margin-bottom: 1.25rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Allow styling for tables that use either the class 'records' (original)
+   or 'movies' (used in the JSP). This keeps the stylesheet backward
+   compatible with either HTML version. */
+/* Tables: support both class names used across JSP variants */
+/* Support both explicit table.class and generic class selectors so the
+   stylesheet applies whether the class is placed on the table element or
+   a wrapper element. This keeps compatibility with different markup styles. */
+table.records, table.movies, .records, .movies {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: .5rem;
+}
+
+/* Captions provide short human-friendly descriptions for each table */
+table.records, table.movies, .records, .movies caption {
+  text-align: left;
+  font-style: italic;
+  color: #444;
+  padding-bottom: .25rem;
+}
+
+/* Cells: padding and border. Keep text aligned left for readability. */
+table.records th, table.records td,
+table.movies th, table.movies td,
+.records th, .records td,
+.movies th, .movies td {
+  border: 1px solid #ddd;
+  padding: .5rem .75rem;
+  text-align: left;
+}
+
+table.records th, table.movies th, .records th, .movies th {
+  background: #f7f7f7;
+  font-weight: 600;
+}
+
+/* Zebra striping for improved row scanning */
+table.records tbody tr:nth-child(odd),
+table.movies tbody tr:nth-child(odd),
+.records tbody tr:nth-child(odd),
+.movies tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+table.records tbody tr:nth-child(even),
+table.movies tbody tr:nth-child(even),
+.records tbody tr:nth-child(even),
+.movies tbody tr:nth-child(even) {
+  background: #fbfbfb;
+}
+
+/* Responsive table wrapper: allow horizontal scroll on small screens */
+.table-wrap {
+  /* Ensures large tables remain usable on narrow screens by enabling
+     horizontal scrolling while preserving the layout on larger viewports. */
+  overflow-x: auto;
+}
+
+/* Focus-visible outline for keyboard users */
+table.records a:focus, table.movies a:focus,
+table.records td:focus, table.movies td:focus,
+.records a:focus, .movies a:focus,
+.records td:focus, .movies td:focus {
+  outline: 3px solid #9bd3ff;
+  outline-offset: 2px;
+}
+
+.group-note {
+  font-size: .95rem;
+  color: #333;
+  margin-top: .5rem;
+}
+
+.meta ul {
+  margin-left: 1.1rem;
+}
+
+footer .disclaimer {
+  margin-top: 2rem;
+  color: #666;
+  font-size: .9rem;
+}
