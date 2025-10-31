@@ -1,0 +1,58 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Application Submitted</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { border-collapse: collapse; width: 90%; max-width: 900px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align:left; }
+    th { background:#f4f4f4; width: 220px; }
+    caption { font-size:1.2em; margin-bottom:8px; }
+    .description { margin-bottom:16px; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>Application Received</h1>
+
+  
+  <p class="description">Below is a summary of the data you submitted. Field labels are on the left and values are on the right. Numeric values and dates are shown where provided. Multi-select fields are shown as comma-separated lists.</p>
+
+  
+
+  <table>
+    <caption>Submitted Application Data</caption>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><th>Full Name</th><td>Test User</td></tr>
+    <tr><th>Email</th><td>test@example.com</td></tr>
+    <tr><th>Phone</th><td>(not provided)</td></tr>
+    <tr><th>Position Applied For</th><td>Software Engineer</td></tr>
+    <tr><th>Available Start Date</th><td>(not provided)</td></tr>
+    <tr><th>Desired Salary (USD)</th><td>(not provided)</td></tr>
+    <tr><th>Highest Education</th><td>(not specified)</td></tr>
+    <tr><th>Years of Experience</th><td>(not provided)</td></tr>
+    <tr><th>Experience Category</th><td>Not provided</td></tr>
+    <tr><th>Skills</th><td>None selected</td></tr>
+    <tr><th>Cover Letter / Notes</th><td><pre style="white-space:pre-wrap; font-family:inherit;">Test</pre></td></tr>
+  </table>
+
+  <h3>Field & Record Descriptions</h3>
+  <ul>
+    <li><strong>Full Name</strong>: Applicant's full name (text).</li>
+    <li><strong>Email</strong>: Contact email (text/email).
+    <li><strong>Phone</strong>: Contact phone number (text/tel).</li>
+    <li><strong>Position</strong>: Role the applicant is applying for (select).</li>
+    <li><strong>Start Date</strong>: Date the applicant is available to start (date).</li>
+    <li><strong>Salary</strong>: Desired annual salary in USD (numeric).</li>
+    <li><strong>Education</strong>: Highest education level (radio single choice).</li>
+    <li><strong>Years of Experience</strong>: Numeric field; used to compute Experience Category.</li>
+    <li><strong>Skills</strong>: Multi-select checkboxes; displayed as CSV list.</li>
+    <li><strong>Cover Letter</strong>: Free-text remarks (textarea).</li>
+  </ul>
+
+  <p class="description">Thank you for submitting your application. This page demonstrates JSP scriptlet usage to retrieve and display form data. For production applications avoid scriptlets and use MVC frameworks or JSTL/EL instead.</p>
+
+</body>
+</html>
+

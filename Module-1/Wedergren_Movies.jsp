@@ -2,7 +2,7 @@
 <%--
 Amanda Wedergren
 October 22, 2025
-Module 2.2 Assignment 
+Module 1.2 Assignment 
 --%>
 
 <%--
