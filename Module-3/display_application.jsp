@@ -12,6 +12,7 @@
   - Scriptlets (<% ... %>) are used per assignment requirement.
   - For multi-valued fields (checkboxes) we use request.getParameterValues.
 --%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,16 +102,36 @@
     // ------------------------------
     // Format multi-valued fields for presentation
     // ------------------------------
-    // Convert the skills string array into a comma-separated list for display
-    String skills = "None selected";
+    // Convert the skills string array into a comma-separated list for display.
+    // Use String.join when possible; include a defensive fallback to handle
+    // odd encodings (for example when automated POSTs send an array's
+    // ToString value such as "System.Object[]").
+    String skillsDisplay = "None selected";
     if (skillsArr != null && skillsArr.length > 0) {
-      StringBuilder sb = new StringBuilder();
-      for (int i=0;i<skillsArr.length;i++) {
-        if (i>0) sb.append(", ");
-        // Note: values are taken directly from the form. In production sanitize them.
-        sb.append(skillsArr[i]);
+      // Defensive: if the client accidentally posted the literal "System.Object[]"
+      // (PowerShell can do this when passing an array in the Body hashtable),
+      // try to salvage the submitted value or provide a clear fallback message.
+      if (skillsArr.length == 1 && "System.Object[]".equals(skillsArr[0])) {
+        String raw = request.getParameter("skills");
+        if (raw != null && raw.indexOf(',') >= 0) {
+          skillsDisplay = raw; // already comma-separated
+        } else {
+          skillsDisplay = "(multiple values submitted; could not parse)";
+        }
+      } else {
+        // Normal case: join the selected skill tokens into a readable list
+        try {
+          skillsDisplay = String.join(", ", skillsArr);
+        } catch (Throwable t) {
+          // Fallback to manual join if String.join is unavailable for any reason
+          StringBuilder sb = new StringBuilder();
+          for (int i=0;i<skillsArr.length;i++) {
+            if (i>0) sb.append(", ");
+            sb.append(skillsArr[i]);
+          }
+          skillsDisplay = sb.toString();
+        }
       }
-      skills = sb.toString();
     }
 
     // ------------------------------
@@ -148,10 +169,47 @@
     <tr><th>Highest Education</th><td><%= education %></td></tr>
     <tr><th>Years of Experience</th><td><%= (yearsExp>=0?yearsExp:"(not provided)") %></td></tr>
     <tr><th>Experience Category</th><td><%= experienceCategory %></td></tr>
-    <tr><th>Skills</th><td><%= skills %></td></tr>
+  <tr><th>Skills</th><td><%= skillsDisplay %></td></tr>
     <tr><th>Cover Letter / Notes</th><td><pre style="white-space:pre-wrap; font-family:inherit;"><%= coverLetter %></pre></td></tr>
   </table>
 
+  <!-- Field and recode descriptions: provide required documentation about
+       each field, any coding used in the form, and how derived values were
+       calculated. Kept as static HTML. -->
+  <h3>Field &amp; Recode Descriptions</h3>
+  <ul>
+    <li><strong>Full Name</strong> — Applicant's full name (text input). Maps to <code>fullName</code>.</li>
+    <li><strong>Email</strong> — Contact email address (email input). Maps to <code>email</code>.</li>
+    <li><strong>Phone</strong> — Contact phone number (tel input). Maps to <code>phone</code>.</li>
+    <li><strong>Position Applied For</strong> — Coded select field. Codes used by the form are mapped to readable labels for display:
+      <ul>
+        <li><code>software_engineer</code> =&gt; Software Engineer</li>
+        <li><code>qa_engineer</code> =&gt; QA Engineer</li>
+        <li><code>product_manager</code> =&gt; Product Manager</li>
+        <li><code>designer</code> =&gt; Designer</li>
+      </ul>
+    </li>
+    <li><strong>Available Start Date</strong> — Date input (ISO yyyy-MM-dd). Displayed as submitted.</li>
+    <li><strong>Desired Salary</strong> — Numeric input (USD). Parsed as a number and displayed as whole dollars; parsing errors result in "(not provided)".</li>
+    <li><strong>Highest Education</strong> — Radio input captured as text and displayed as submitted.</li>
+    <li><strong>Years of Experience</strong> — Numeric input parsed to integer; if omitted the display shows "(not provided)".</li>
+    <li><strong>Skills</strong> — Multi-select checkboxes. Submitted values are collected via <code>request.getParameterValues("skills")</code> and shown as a comma-separated list.</li>
+    <li><strong>Cover Letter / Notes</strong> — Free-text area preserved with line breaks for readability.</li>
+  </ul>
+
+  <h4>Recode rules</h4>
+  <ul>
+    <li><strong>Experience category</strong> — Derived from Years of Experience:
+      <ul>
+        <li>Not provided: when years is missing</li>
+        <li>Entry-level (0-1 years)</li>
+        <li>Early-career (2-4 years)</li>
+        <li>Mid-career (5-9 years)</li>
+        <li>Senior (10+ years)</li>
+      </ul>
+    </li>
+    <li><strong>Position labels</strong> — The form sends short codes which are mapped in the scriptlet to human-friendly labels for the table display.</li>
+  </ul>
 
   <p class="description">Thank you for submitting your application. This page demonstrates JSP scriptlet usage to retrieve and display form data.</p>
 

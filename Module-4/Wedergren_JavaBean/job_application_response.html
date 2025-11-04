@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application - JavaBean Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 2rem auto; }
+        label { display:block; margin-top: .6rem; }
+        input, select, textarea { width:100%; padding:.4rem; }
+        .two-up { display:grid; grid-template-columns:1fr 1fr; gap:1rem }
+        .actions { margin-top:1rem }
+    </style>
+</head>
+<body>
+
+<h1>Job Application (JavaBean example)</h1>
+<p>This form collects applicant information and posts it to a JSP that constructs a JavaBean
+and displays the data in a formatted table.</p>
+
+<form action="display_bean.jsp" method="post">
+    <label for="fullName">Full name</label>
+    <input type="text" id="fullName" name="fullName" required>
+
+    <div class="two-up">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+    </div>
+
+    <label for="position">Position applied for</label>
+    <select id="position" name="position">
+        <option value="dev">Developer</option>
+        <option value="qa">QA Tester</option>
+        <option value="pm">Project Manager</option>
+        <option value="ux">UX Designer</option>
+    </select>
+
+    <div class="two-up">
+        <div>
+            <label for="startDate">Available start date</label>
+            <input type="date" id="startDate" name="startDate">
+        </div>
+        <div>
+            <label for="salary">Desired salary (USD)</label>
+            <input type="number" id="salary" name="salary" step="0.01" min="0">
+        </div>
+    </div>
+
+    <label>Years of experience</label>
+    <input type="number" name="yearsExperience" min="0" max="60">
+
+    <label>Skills (check all that apply)</label>
+    <label><input type="checkbox" name="skills" value="Java"> Java</label>
+    <label><input type="checkbox" name="skills" value="HTML/CSS"> HTML/CSS</label>
+    <label><input type="checkbox" name="skills" value="SQL"> SQL</label>
+    <label><input type="checkbox" name="skills" value="Testing"> Testing</label>
+    <label><input type="checkbox" name="skills" value="Design"> Design</label>
+
+    <label for="coverLetter">Short cover letter</label>
+    <textarea id="coverLetter" name="coverLetter" rows="6"></textarea>
+
+    <div class="actions">
+        <button type="submit">Submit Application</button>
+        <button type="reset">Reset</button>
+    </div>
+</form>
+
+</body>
+</html>
+

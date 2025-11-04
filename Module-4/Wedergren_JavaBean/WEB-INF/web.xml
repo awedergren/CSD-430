@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://jakarta.ee/xml/ns/jakartaee
+            http://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- Human-readable application name -->
+    <display-name>Wedergren JavaBean Assignment</display-name>
+
+    <!--
+      Welcome files tell the container which file to serve when the app root
+      is requested (for example: http://localhost:8080/Wedergren_JavaBean/).
+      We point to `job_application.jsp` so the form is the default page.
+    -->
+    <welcome-file-list>
+        <welcome-file>job_application.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>

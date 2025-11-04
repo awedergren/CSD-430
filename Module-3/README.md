@@ -27,10 +27,10 @@ Copy-Item -Path .\display_application.jsp -Destination $dest
 3. Open the form in a browser: http://localhost:8080/Module-3/job_application.jsp
 4. Fill out the form and click Submit. The results will be displayed by `display_application.jsp`.
 
-Notes / Assignment mapping:
+Notes:
 - Code is commented in the JSPs.
 - Java scriptlets are used in `display_application.jsp` as required.
 - All HTML tags are kept outside the scriptlet blocks.
 - Display uses an HTML table to present the submitted data and includes field/record descriptions.
 
-Security note: This example is for teaching/demonstration purposes only. Scriptlets and direct parameter usage are discouraged in production code. Always validate and sanitize user input and prefer MVC patterns, JSTL, or servlet controllers.
+
