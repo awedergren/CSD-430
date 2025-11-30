@@ -1,0 +1,184 @@
+<!-- Amanda Wedergren
+     November 24, 2025
+     Module 9.2 Assignment
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Movie Delete Form</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #eee; }
+        .message { margin: 10px 0; color: #006600; }
+    </style>
+</head>
+<body>
+<h1>Movie Records</h1>
+<p>This page displays all records from the <code>Amanda_movies_data</code> table
+   and provides a dropdown to select a record to delete. Data access is handled
+   by the JavaBean <code>MovieDB</code> in package <code>com.csd430.beans</code>.</p>
+
+
+
+
+
+<!-- Display table with thead always present -->
+<table>
+    <thead>
+        <tr>
+            <th>ID (key)</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            <td>1</td>
+            <td>The Shawshank Redemption</td>
+            <td>Drama</td>
+            <td>1994</td>
+            <td>Frank Darabont</td>
+            <td>9.3</td>
+            <td>Prison drama.</td>
+        </tr>
+    
+        <tr>
+            <td>2</td>
+            <td>The Godfather</td>
+            <td>Crime</td>
+            <td>1972</td>
+            <td>Francis Ford Coppola</td>
+            <td>9.2</td>
+            <td>Mafia classic.</td>
+        </tr>
+    
+        <tr>
+            <td>3</td>
+            <td>Pulp Fiction</td>
+            <td>Crime</td>
+            <td>1994</td>
+            <td>Quentin Tarantino</td>
+            <td>8.9</td>
+            <td>Interwoven stories.</td>
+        </tr>
+    
+        <tr>
+            <td>4</td>
+            <td>Inception</td>
+            <td>Sci-Fi</td>
+            <td>2010</td>
+            <td>Christopher Nolan</td>
+            <td>8.8</td>
+            <td>Dream heist.</td>
+        </tr>
+    
+        <tr>
+            <td>5</td>
+            <td>The Matrix</td>
+            <td>Sci-Fi</td>
+            <td>1999</td>
+            <td>Lana Wachowski & Lilly Wachowski</td>
+            <td>8.7</td>
+            <td>Reality-bending.</td>
+        </tr>
+    
+        <tr>
+            <td>6</td>
+            <td>Spirited Away</td>
+            <td>Animation</td>
+            <td>2001</td>
+            <td>Hayao Miyazaki</td>
+            <td>8.6</td>
+            <td>Fantasy.</td>
+        </tr>
+    
+        <tr>
+            <td>7</td>
+            <td>Parasite</td>
+            <td>Thriller</td>
+            <td>2019</td>
+            <td>Bong Joon Ho</td>
+            <td>8.6</td>
+            <td>Social satire.</td>
+        </tr>
+    
+        <tr>
+            <td>8</td>
+            <td>The Dark Knight</td>
+            <td>Action</td>
+            <td>2008</td>
+            <td>Christopher Nolan</td>
+            <td>9.0</td>
+            <td>Batman & Joker.</td>
+        </tr>
+    
+        <tr>
+            <td>9</td>
+            <td>Forrest Gump</td>
+            <td>Drama</td>
+            <td>1994</td>
+            <td>Robert Zemeckis</td>
+            <td>8.8</td>
+            <td>Life story.</td>
+        </tr>
+    
+        <tr>
+            <td>10</td>
+            <td>The Grand Budapest Hotel</td>
+            <td>Comedy</td>
+            <td>2014</td>
+            <td>Wes Anderson</td>
+            <td>8.1</td>
+            <td>Stylized comedy.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+<h2>Delete a Record</h2>
+<p>Select the <strong>ID</strong> of the record you want to delete then click <em>Delete Selected</em>.</p>
+<form method="get" action="list.jsp">
+    <label for="deleteId">Select ID:</label>
+    <select id="deleteId" name="deleteId">
+        <option value="">-- choose id --</option>
+        
+            <option value="1">1 - The Shawshank Redemption</option>
+        
+            <option value="2">2 - The Godfather</option>
+        
+            <option value="3">3 - Pulp Fiction</option>
+        
+            <option value="4">4 - Inception</option>
+        
+            <option value="5">5 - The Matrix</option>
+        
+            <option value="6">6 - Spirited Away</option>
+        
+            <option value="7">7 - Parasite</option>
+        
+            <option value="8">8 - The Dark Knight</option>
+        
+            <option value="9">9 - Forrest Gump</option>
+        
+            <option value="10">10 - The Grand Budapest Hotel</option>
+        
+    </select>
+    <input type="submit" value="Delete Selected" />
+</form>
+
+<p><em>Notes:</em> The form uses GET for simplicity so the resulting page shows
+the remaining rows and updated dropdown immediately. If all records are deleted
+the table will show only the header row per the assignment requirement.</p>
+
+</body>
+</html>

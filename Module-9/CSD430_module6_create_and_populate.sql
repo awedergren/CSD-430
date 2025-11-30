@@ -1,6 +1,6 @@
 -- Amanda Wedergren
--- November 24, 2025
--- Module 8.2 Assignment
+-- November 24 , 2025 
+-- Module 9.2 Assignment
 
 -- Module-6: Create and populate table used by JavaBean/JSP assignment
 -- WARNING: CREATE USER / GRANT require administrative privileges. Remove or edit those lines if you don't have root access.

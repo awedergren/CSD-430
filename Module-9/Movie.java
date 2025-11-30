@@ -1,8 +1,26 @@
-/**  Amanda Wedergren
-     November 24, 2025
-     Module 8.2 Assignment
-*/
-
+/**
+ * Amanda Wedergren
+ * November 24, 2025
+ * Module 8.2 Assignment
+ *
+ * Movie JavaBean
+ * ----------------
+ * Simple POJO that maps to the `Amanda_movies_data` table used by the
+ * Module-9 JSPs. This class follows JavaBean conventions (no-arg constructor,
+ * getters/setters) so it can be used in JSPs or passed between layers.
+ *
+ * Fields and their mapping:
+ * - `id`       : primary key (INT AUTO_INCREMENT)
+ * - `title`    : movie title
+ * - `genre`    : movie genre
+ * - `year`     : release year
+ * - `director` : director name
+ * - `rating`   : numeric rating (e.g. 8.7)
+ * - `notes`    : optional text notes
+ *
+ * The class implements `Serializable` as a best practice for beans used in
+ * web applications (session storage, frameworks, etc.).
+ */
 package com.csd430.beans;
 
 import java.io.Serializable;

@@ -1,3 +1,8 @@
+<!-- Amanda Wedergren
+     November 24, 2025
+     Module 8.2 Assignment
+-->
+
 <%@ page import="java.sql.*, java.util.Map, java.util.HashMap" %>
 <%
     // Movie update: read params and update Amanda_movies_data table

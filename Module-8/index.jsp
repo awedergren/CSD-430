@@ -1,3 +1,8 @@
+<!-- Amanda Wedergren
+     November 24, 2025
+     Module 8.2 Assignment
+-->
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.sql.*" %>
 <%
