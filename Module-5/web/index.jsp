@@ -1,3 +1,8 @@
+<!-- Amanda Wedergren
+     November 17, 2025
+     Module 5.2 Assignment
+-->
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>

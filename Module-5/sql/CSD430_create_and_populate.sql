@@ -1,3 +1,7 @@
+-- Amanda Wedergren
+-- November 17, 2025
+-- Module 5.2 Assignment
+
 -- CSD430 database creation and sample data
 -- WARNING: Running user-creation statements requires MySQL root (administrator) privileges.
 -- Edit or remove CREATE USER / GRANT statements if running on a managed host where you cannot create users.
